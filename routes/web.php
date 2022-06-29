@@ -14,13 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/index-books', [BookController::class, 'index'])->name('index.books');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
+Route::get('/', [BookController::class, 'index'])->name('index.books');
 Route::get('/new-books', [BookController::class, 'create'])->name('books.create');
 Route::post('/new-books-store', [BookController::class, 'store'])->name('books.new-data');
 Route::get('/edit-books/{book:slug}', [BookController::class, 'edit'])->name('books.edit');

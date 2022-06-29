@@ -50,8 +50,8 @@
                                   </div> --}}
 
 
-                                <select class="form-select" aria-label="Default select example" name="category_id">
-                                    <option selected>Kategori Buku</option>
+                                <select class="form-select mt-3 mb-3" aria-label="Default select example" name="category_id">
+                                    <option disabled selected hidden>Kategori Buku</option>
                                     @foreach($categories as $c)
                                         <option value="{{ $c->id }}">{{ $c->name }}
                                     @endforeach
@@ -67,8 +67,8 @@
                                 @enderror --}}
 
                                 <div class="mt-3 mb-3 form-floating">
-                                    <input type="text" class="form-control form-control-lg" name="author" placeholder="1">
-                                    <label for="author"> Penulis Buku</label>                                      
+                                    <input type="text" class="form-control form-control-lg" name="author" placeholder="Penulis Buku">
+                                    <label for="author"> Penulis Buku </label>                                      
                                 </div>
 
                                 @error('author')

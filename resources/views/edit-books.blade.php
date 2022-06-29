@@ -31,7 +31,7 @@
                                 @enderror
 
                                 <div class="mt-3 mb-3 form-floating">
-                                    <input type="text" class="form-control form-control-lg" name="slug" placeholder="Slug"
+                                    <input type="text" class="form-control form-control-lg" name="slug"
                                     value="{{ $book->slug }}">
                                     <label for="slug">Slug Buku</label>                                      
                                 </div>
@@ -51,23 +51,40 @@
                                     </ul>
                                   </div> --}}
 
-                                <div class="mt-3 mb-3 form-floating">
+                                <select class="form-select mt-3 mb-3" aria-label="Default select example" name="category_id" aria-placeholder="Kategori Buku">
+                                    <option disabled selected hidden>Kategori Buku</option>
+                                    @foreach($categories as $c)
+                                        @if($book->category_id == $c->id)
+                                            <option selected="selected" value="{{ $c->id }}">{{ $c->name }}
+                                        @else
+                                            <option value="{{ $c->id }}">{{ $c->name }}
+                                        @endif
+                                    @endforeach
+                                </select>
+
+                                {{-- <div class="mt-3 mb-3 form-floating">
                                     <input type="number" class="form-control form-control-lg" name="category_id" placeholder="1"
                                     value="{{ $book->category_id }}">
                                     <label for="category_id"> ID Kategori Buku</label>                                      
-                                </div>
+                                </div> --}}
 
                                 @error('category_id')
                                 <div class="alert alert-danger"> ID Kategori Buku Error </div>
                                 @enderror
 
                                 <div class="mt-3 mb-3 form-floating">
+                                    <input type="text" class="form-control form-control-lg" name="author"
+                                    value="{{ $book->author->name }}">
+                                    <label for="author"> Penulis Buku </label>                                      
+                                </div>
+
+                                {{-- <div class="mt-3 mb-3 form-floating">
                                     <input type="number" class="form-control form-control-lg" name="author_id" placeholder="1"
                                     value="{{ $book->author_id }}">
                                     <label for="author_id"> ID Penulis Buku</label>                                      
-                                </div>
+                                </div> --}}
 
-                                @error('author_id')
+                                @error('author')
                                 <div class="alert alert-danger"> ID Penulis Buku Error </div>
                                 @enderror
 

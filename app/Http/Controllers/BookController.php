@@ -52,8 +52,8 @@ class BookController extends Controller
         ]);
 
         if (Author::where('name', '=', $validatedData['author'])->first()) {
-            $author_name = Author::where('name', '=', $validatedData['author'])->first();
-            $validatedData['author'] = $author_name->id;
+            $author = Author::where('name', '=', $validatedData['author'])->first();
+            $validatedData['author'] = $author->id;
 
             Book::create([
                 'title' => $validatedData['title'],
@@ -106,9 +106,11 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
+        $categories = Category::All();
         // $book = Book::findOrFail($slug);
         return view('edit-books', [
             'book' => $book,
+            'categories' => $categories
         ]);
     }
 
@@ -125,10 +127,35 @@ class BookController extends Controller
             'title' => 'required|max:255',
             'slug' => 'required',
             'category_id' => 'required',
-            'author_id' => 'required'
+            'author' => 'required'
         ]);
 
-        $book->update($validatedData);
+        if (Author::where('name', '=', $validatedData['author'])->first()) {
+            $author = Author::where('name', '=', $validatedData['author'])->first();
+            $validatedData['author'] = $author->id;
+
+            $book->update([
+                'title' => $validatedData['title'],
+                'slug' => $validatedData['slug'],
+                'category_id' => $validatedData['category_id'],
+                'author_id' => $validatedData['author']
+            ]);
+        }
+
+        else {
+            $author = Author::create([
+                'name' =>  $validatedData['author']
+            ]);
+            $validatedData['author'] = $author->id;
+
+            $book->update([
+                'title' => $validatedData['title'],
+                'slug' => $validatedData['slug'],
+                'category_id' => $validatedData['category_id'],
+                'author_id' => $validatedData['author']
+            ]);
+        }
+
         return redirect()->route('index.books')->with('edit_data', 'Pengeditan Buku Berhasil');
     }
 
