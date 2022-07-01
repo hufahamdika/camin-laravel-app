@@ -13,6 +13,11 @@ List fitur pada aplikasi ini adalah sebagai berikut.
 6. Fitur show menampilkan detail buku tertentu
 7. Fitur delete untuk menghapus Buku
 8. Fitur flash message setelah sukses melakukan aksi
+9. Fitur get/index untuk menampilkan seluruh data menggunakan API
+10. Fitur get/show untuk menampilkan data dengan id tertentu menggunakan API
+11. Fitur create untuk membuat data baru dengan menggunakan API
+12. Fitur update untuk melakukan update data tertentu dengan menggunakan API
+13. Fitur delete untuk menghapus data tertentu dengan menggunakan API
 
 ## Tampilan Aplikasi
 
@@ -169,3 +174,39 @@ Flash message edit buku
 Flash message delete buku
 
 ![](/readme-images/2022-06-29-15-18-09.png)
+
+### Fitur 9: Fitur Get untuk Seluruh Model dengan API
+
+Halaman postman yang menampilkan seluruh data model
+
+![](/readme-images/2022-07-02-04-11-07.png)
+
+### Fitur 10: Fitur Get untuk Model Tertentu dengan Menggunakan API
+
+Halaman postman apabila data ditemukan
+
+![](/readme-images/2022-07-02-04-12-59.png)
+
+Halaman postman apabila data tidak ditemukan
+
+![](/readme-images/2022-07-02-04-13-45.png)
+
+### Fitur 11: Fitur Create Model dengan Menggunakan API
+
+Halaman postman yang menunjukkan apabila data berhasil dibuat
+
+![](/readme-images/2022-07-02-04-15-28.png)
+
+### Fitur 12: Fitur Update Model Tertentu dengan Menggunakan API
+
+Halaman postman apabila data berhasil diupdate
+
+![](/readme-images/2022-07-02-04-17-10.png)
+
+Halaman postman apabila data tidak ditemukan
+
+![](/readme-images/2022-07-02-04-17-52.png)
+
+### Fitur 13: Fitur Delete Model Tertentu dengan Menggunakan API
+
+![](/readme-images/2022-07-02-04-18-29.png)
